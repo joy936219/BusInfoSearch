@@ -10,7 +10,7 @@
 	//echo $xml->BusInfo[0]->Route[0]->EstimateTime[0]['StopID'];
 	$list = '';
 
-	$list .= '<table>
+	$list .= '<table class="table table-striped">
   					<tr>
     					<th>編號</th>
     					<th>站名</th>

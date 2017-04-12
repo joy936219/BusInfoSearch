@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>大專院校所查詢</title>
+    <meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+   		$(document).ready(function(){
+    	$("button").click(function(){
+    		
+            var data = $('#list').val();
+        	$.ajax({url: "selectshooldata.php?SchoolName="+data, 
+
+        		success: function(result){
+        			$('#div1').html(result);
+            	
+        }});
+    });
+});
+        function loaddata(){
+            $.ajax(
+                {
+                    url: "select.php", 
+                    success: function(result){
+                        $('#list').append(result);
+                
+                }}
+         );
+        }
+
+</script>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body onload="loaddata()">
+	<select id="list"></select>
+	<button id="test">Search</button>
+	<div id="div1">
+		
+	</div>
+</body>
+</html>
